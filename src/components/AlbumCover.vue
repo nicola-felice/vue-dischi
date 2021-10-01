@@ -45,4 +45,27 @@ export default {
       margin-top: .15rem;
     }
   }
+
+  @media screen and (max-width: 870px) {
+    li {
+      width: calc(25% - 1rem);
+
+      .title_album {
+        font-weight: 800;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    li {
+      width: calc((100% / 3) - 1rem);
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    li {
+      width: calc((100% / 2) - 1rem);
+    }
+  }
 </style>
