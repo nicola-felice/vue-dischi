@@ -17,17 +17,29 @@ export default {
   components: {
     AlbumCover
   },
-  props:['musicGenre'],
+  props:['musicGenre', 'searchNameAuthor'],
   data() {
     return {
       albumsData: [],
-      musicGenreSelected: "",
     }
   },
   computed: {
     filteredAlbums() {
-      return this.albumsData.filter( elm => (elm.genre == this.musicGenre || this.musicGenre == "") )
-    }
+      return this.albumsData.filter( elm => {
+        let author = elm.author.toLowerCase();        
+
+        // return the album only if the album genre is selected 
+        // or if no genre is selected
+        if ( this.musicGenre == "" || elm.genre == this.musicGenre) {
+          // and only if the author search (string) is included the author of the album
+          if ( author.includes(this.searchNameAuthor.toLowerCase()) ) {
+            return true;
+          }
+        }
+
+        return false;
+      });
+    },
   },
   mounted() {
     axios

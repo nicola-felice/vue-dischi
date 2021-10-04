@@ -1,6 +1,9 @@
 <template>
   <header>
     <img src="../assets/spotify-logo.png" alt="logo spotify">
+
+    <input @keyup="$emit('authorSearch', searchNameAuthor)" v-model="searchNameAuthor" type="text" placeholder="cerca nome artista">
+
     <select @change="$emit('genre', musicGenreSelected)" v-model="musicGenreSelected" name="genreMusic" id="genreMusic">
       <option value="">-select a genre-</option>
       <option value="Rock">Rock</option>
@@ -17,6 +20,7 @@ export default {
   data() {
     return {
       musicGenreSelected: "",
+      searchNameAuthor: "",
     }
   }
 }
@@ -28,7 +32,6 @@ export default {
     background-color: #2E3A46;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
 
@@ -36,7 +39,13 @@ export default {
     width: 3.5rem;
   }
 
-  select {
+  input {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  select,
+  input {
     padding: .25rem;
   }
 </style>
