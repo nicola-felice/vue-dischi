@@ -5,6 +5,8 @@
       <option value="">-select a genre-</option>
       <option value="Rock">Rock</option>
       <option value="Pop">Pop</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Metal">Metal</option>
     </select>
   </header>
 </template>
