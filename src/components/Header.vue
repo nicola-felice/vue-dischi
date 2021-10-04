@@ -5,7 +5,7 @@
     <input @keyup="$emit('authorSearch', searchNameAuthor)" v-model="searchNameAuthor" type="text" placeholder="cerca nome artista">
 
     <select @change="$emit('genre', musicGenreSelected)" v-model="musicGenreSelected" name="genreMusic" id="genreMusic">
-      <option value="">-select a genre-</option>
+      <option value="">-seleziona un genere-</option>
       <option value="Rock">Rock</option>
       <option value="Pop">Pop</option>
       <option value="Jazz">Jazz</option>
