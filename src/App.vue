@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header @genre="musicGenreSelected" />
 
     <main>
       <div class="container_medium">
-        <AlbumsSection/>
+        <AlbumsSection :musicGenre="musicGenre"/>
       </div>
     </main>
 
@@ -20,7 +20,17 @@ export default {
   name: 'App',
   components: {
     Header,
-    AlbumsSection
+    AlbumsSection,
+  },
+  data() {
+    return {
+      musicGenre: "",
+    }
+  },
+  methods: {
+    musicGenreSelected(genre) {
+      this.musicGenre = genre;
+    }
   }
 }
 </script>

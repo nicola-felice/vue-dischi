@@ -1,9 +1,11 @@
 <template>
   <li>
-    <img :src="albumData.poster" :alt="albumData.title + 'image'">
-    <div class="title_album">{{albumData.title}}</div>
-    <div class="author_album">{{albumData.author}}</div>
-    <div class="year_album">{{albumData.year}}</div>
+    <a href="#">
+      <img :src="albumData.poster" :alt="albumData.title + 'image'">
+      <div class="title_album">{{albumData.title}}</div>
+      <div class="author_album">{{albumData.author}}</div>
+      <div class="year_album">{{albumData.year}}</div>
+    </a>
   </li>
 </template>
 
@@ -16,11 +18,15 @@ export default {
 
 <style lang="scss" scoped>
   li {
-    width: calc(20% - 1rem);
     background-color: #2E3A46;
     text-align: center;
     padding: 1rem;
     margin: .5rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     img {
       margin-bottom: 1rem;
@@ -43,29 +49,6 @@ export default {
     .year_album {
       margin-bottom: .25rem;
       margin-top: .15rem;
-    }
-  }
-
-  @media screen and (max-width: 870px) {
-    li {
-      width: calc(25% - 1rem);
-
-      .title_album {
-        font-weight: 800;
-        font-size: 1rem;
-      }
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    li {
-      width: calc((100% / 3) - 1rem);
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    li {
-      width: calc((100% / 2) - 1rem);
     }
   }
 </style>
