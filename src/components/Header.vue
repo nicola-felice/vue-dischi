@@ -6,10 +6,7 @@
 
     <select @change="$emit('genre', musicGenreSelected)" v-model="musicGenreSelected" name="genreMusic" id="genreMusic">
       <option value="">-seleziona un genere-</option>
-      <option value="Rock">Rock</option>
-      <option value="Pop">Pop</option>
-      <option value="Jazz">Jazz</option>
-      <option value="Metal">Metal</option>
+      <option v-for="(elm, index) in arrGenres" :key="index" :value="elm">{{elm}}</option>
     </select>
   </header>
 </template>
@@ -22,7 +19,8 @@ export default {
       musicGenreSelected: "",
       searchNameAuthor: "",
     }
-  }
+  },
+  props: ['arrGenres']
 }
 </script>
 

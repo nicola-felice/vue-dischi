@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Header @genre="musicGenreSelected" @authorSearch="searchNameAuthor" />
+    <Header @genre="musicGenreSelected" @authorSearch="searchNameAuthor" :arrGenres="genresList" />
 
     <main>
       <div class="container_medium">
-        <AlbumsSection :searchNameAuthor="authorSearch" :musicGenre="musicGenre"/>
+        <AlbumsSection @genresList="generateGenreList" :searchNameAuthor="authorSearch" :musicGenre="musicGenre"/>
       </div>
     </main>
 
@@ -26,6 +26,7 @@ export default {
     return {
       musicGenre: "",
       authorSearch: "",
+      genresList: "",
     }
   },
   methods: {
@@ -34,6 +35,9 @@ export default {
     },
     searchNameAuthor(authorSearch) {
       this.authorSearch = authorSearch;
+    },
+    generateGenreList(genresList) {
+      this.genresList = genresList;
     }
   }
 }
